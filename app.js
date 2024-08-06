@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const authRoutes = require("./routes/authRoute");
 const cookieParser = require("cookie-parser");
 const { requireAuth, checkUser } = require("./middleware/authMiddleware");
+require("dotenv").config();
 
 const app = express();
 
@@ -15,8 +16,7 @@ app.use(cookieParser());
 app.set("view engine", "ejs");
 
 // database connection
-const dbURI =
-  "mongodb+srv://skydiver:skydiver123@cluster0.fy4qlsh.mongodb.net/node-jwt-auth?retryWrites=true&w=majority&appName=Cluster0";
+const dbURI = process.env.MONGO_URL;
 mongoose
   .connect(dbURI, {
     useNewUrlParser: true,

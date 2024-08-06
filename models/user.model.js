@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const { isEmail } = require("validator");
 const bcrypt = require("bcryptjs");
 
+
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
